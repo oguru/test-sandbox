@@ -1,5 +1,5 @@
 import * as serviceWorker from "./serviceWorker";
-import App from "./App.js";
+import App from "./App";
 import ImageSizeProvider from "./context/imageSizeContext";
 import React from "react";
 import ReactDOM from "react-dom";

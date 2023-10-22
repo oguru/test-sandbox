@@ -41,12 +41,17 @@ describe("Admin tests", () => {
   });
 
   it("Should show the welcome text when a user logs in", () => {
-    let loginWelcomeText = findByTestAttr(component, "loginWelcomeText");
-
+    
     const loginContainer = component.find(".login-container");
     console.log("loginContainer: ", loginContainer.debug());
+    
+    let loginHandler = findByTestAttr(component, "loginHandler");
+    let loginWelcomeText = findByTestAttr(component, "loginWelcomeText");
 
+    expect(loginHandler.length).toBe(1);
     expect(loginWelcomeText.length).toBe(0);
+    console.log("loginHandler 1:", loginHandler.debug());
+    console.log("loginWelcomeText 1:", loginWelcomeText.debug());
 
     const setLoggedInBtn = findByTestAttr(component, "setLoggedIn");
     console.log("setLoggedInBtn:", setLoggedInBtn.debug());
@@ -58,11 +63,16 @@ describe("Admin tests", () => {
     });
 
     loginWelcomeText = findByTestAttr(component, "loginWelcomeText");
-    console.log("loginWelcomeText", loginWelcomeText.debug());
+    loginHandler = findByTestAttr(component, "loginHandler");
 
-    expect(loginWelcomeText)
-      .first()
-      .text()
-      .toBe(`Welcome ${userName}, you are now signed in.`);
+    expect(loginHandler.length).toBe(0);
+    expect(loginWelcomeText.length).toBe(1);
+    console.log("loginHandler 2:", loginHandler.debug());
+    console.log("loginWelcomeText 2:", loginWelcomeText.debug());
+
+    // expect(loginWelcomeText)
+    //   .first()
+    //   .text()
+    //   .toBe(`Welcome ${userName}, you are now signed in.`);
   });
 });

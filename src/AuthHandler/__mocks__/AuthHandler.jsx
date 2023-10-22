@@ -1,5 +1,5 @@
 const AuthHandler = ({ setLoggedIn, loggedIn = false, setLoginError }) => (
-  <div>
+  <div data-test="loginHandler">
     <button data-test="setLogout" onClick={() => setLoggedIn(false)}>
       Logout
     </button>
